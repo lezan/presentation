@@ -1,0 +1,841 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			body {
+				font-family: "Lucida Sans Unicode";
+			}
+
+			img {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 50%;
+			}
+
+			.keyWord {
+				font-size: 1.2em;
+				color: coral;
+			}
+
+			/* .fragment.visible:not(.current-fragment) {
+				display: none;
+				height: 0px;
+				line-height: 0px;
+				font-size: 0px;
+			} */
+
+			.fragmentRemove.visible:not(.current-fragment) {
+				display: none;
+				height: 0px;
+				line-height: 0px;
+				font-size: 0px;
+			}
+
+			.reveal .slides section .fragment.step-fade-in-then-out {
+				opacity: 0;
+				display: none; 
+			}
+
+			.reveal .slides section .fragment.step-out {
+				opacity: 0;
+				display: none; 
+			}
+
+			.reveal .slides section .fragment.step-fade-in-then-out.current-fragment {
+				opacity: 1;
+				display: inline;
+			}
+
+			.reveal .slides section .fragment.highlight-coral,
+			.reveal .slides section .fragment.highlight-current-coral {
+				opacity: 1;
+				visibility: inherit; 
+			}
+
+			.reveal .slides section .fragment.highlight-coral.visible {
+				color: coral;
+			}
+
+			.reveal .slides section .fragment.highlight-current-coral.current-fragment {
+				color: coral;
+			}
+
+			.reveal section img {
+				border: 0;
+				background: none;
+				box-shadow: none;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- Slide 1 -->
+				<section>
+					<h4>
+						Studio e Sviluppo di una <span class="keyWord">Dashboard</span>
+					</h4>
+					<h4>
+						per l'analisi e la visualizzazione
+					</h4>
+					<h4>
+						di servizi a valore aggiunto per la telefonia mobile.
+					</h4>
+					<hr>
+					<div style="width: 100%; display:flex; flex-direction: row; font-size:.6em;">
+						<h6 style="justify-content: flex-start; width: 50%;">Autore: Leonardo Zanchi</h6>
+						<h6 style="justify-content: flex-end; width: 50%;">Relatore: Giancarlo Ruffo</h6>
+					</div>
+				</section>
+
+				<!-- Slide 2 -->
+				<section>
+					<!-- Slide 2.1 -->
+					<section>
+						<div style="position: relative;">
+							<h3 style="margin-bottom: 0px;"> Data Visualization </h3>
+						
+							<div style="margin-top: 0px; position: absolute; right: 235px;"> una definizione</div>
+						</div>
+
+						<div style="margin-top: 100px;">La rappresentazione e la presentazione di dati per facilitare la loro comprensione.</div>
+						<div style="text-align: right; font-size: .6em; font-style: italic;"> Andy Kirk </div>
+					</section>
+
+					<!-- Slide 2.2.1 -->
+					<section>
+						<h3> Rappresentazione </h3>
+
+						<div style="width: 100%; white-space: nowrap;">
+							<div style="display:inline-block; text-align: left; width: 50%;">
+								Marks							
+							</div>
+
+							<div style="display:inline-block; text-align: right; width: 50%;"> 
+								Channels
+							</div>
+
+							<div style="width: 100%;"></div>
+
+							<div style="display:inline-block; text-align: left; width: 50%;">
+								<ul>
+									<li> Points (0D) </li>
+									<li> Lines (1D) </li>
+									<li> Areas (2D) </li>
+									<li> Volumes (3D) </li>
+								</ul>
+							</div>
+							
+							<div style="display:inline-block; text-align: right; width: 50%;">
+								<ul>
+									<li> Position </li>
+									<li> Color </li>
+									<li> Shape </li>
+									<li> Angle </li>
+									<li> Size </li>
+								</ul>
+							</div>								
+						</div>
+					</section>
+
+					<!-- Slide 2.2.2 -->
+					<section>
+						<h6 style="text-align: left; top: 0;"> Rappresentazione </h6>
+
+						<div style="display: inline-flex; flex-direction: row; width: 100%;">
+							<img style="width: 50%;" data-src="image/anscombe_dataa.png">
+							<img class="fragment" style="width: 50%;" data-src="image/anscombe_charta.png">
+						</div>
+					</section>
+
+					<!-- Slide 2.2.3 -->
+					<section>
+						<h3 style="margin-bottom: 0px;"> Presentazione </h3>
+
+						<div style="margin-top: 0px;"> Design della visualizzazione </div>
+						<div style="margin-top: 50px;">
+							<ul>
+								<li> Organizzazione View </li>
+								<li> Composizione View </li>
+								<li> Interattività </li>
+								<li> Annotazioni </li>
+								<li> Colore </li>
+							</ul>
+						</div>
+					</section>
+
+					<!-- Slide 2.2.4 -->
+					<section>
+						<h3 style="margin-bottom: 0px;"> Dati </h3>
+
+						<div style="margin-top: 0px;"> Importanza dei dati </div>
+
+						<div style="display: inline-flex; flex-direction: row; width: 100%; margin-top: 50px;">
+							<p class="fragment fade-left" style="width: 50%; display: flex; align-items: center; justify-content: center;"> Operazioni </p>
+							<ul style="width: 50%;">
+								<li class="fragment fade-down" data-autoslide="500"> Acquisizione </li>
+								<li class="fragment fade-down" data-autoslide="500"> Analisi </li>
+								<li class="fragment fade-down" data-autoslide="500"> Trasformazione </li>
+								<li class="fragment fade-down"> Esplorazione </li>
+							</ul>
+						</div>
+					</section>
+
+					<!-- Slide 2.2.5 -->
+					<section>
+						<h6 style="text-align: left; top: 0;"> Dati </h6>
+
+						<div style="display: inline-flex; flex-direction: row; width: 100%;">
+							<div style="width: 50%;">
+								<p> Tipi di dato </p>
+								<ul>
+									<li class="fragment grow highlight-blue" data-fragment-index="1"> Attributi </li>
+									<li> Item </li>
+									<li> Link </li>
+									<li> Position </li>
+									<li> Grid </li>
+								</ul>
+							</div>
+
+							<div id="attributi" class="fragment fade-in" data-fragment-index="2" style="width: 50%;">
+								<p> Attributi </p>
+								<ul>
+									<li> Categorici </li>
+									<li class="fragment grow highlight-blue" data-fragment-index="3" > Ordinati </li>
+									<ul>
+										<li class="fragment fade-in" data-fragment-index="4"> Ordinali </li>
+										<li class="fragment fade-in" data-fragment-index="5"> Quantitativi </li>
+									</ul>
+								</ul>
+							</div>
+					</section>
+
+					<!-- Slide 2.2.6 -->
+					<section> 
+						<h3 style="margin-bottom: 0px;"> facilitare la loro comprensione </h3>
+
+						<div style="margin-top: 0px; position: absolute; right: 45px;"> rappresenta l'obiettivo della Data Visualization </div>
+
+						<div style="margin-top: 50px;">
+							<p> Perché? </p>
+							<ul>
+								<li class="fragment fade-down" data-autoslide="500"> Scoperta </li>
+								<li class="fragment fade-down" data-autoslide="500"> Esplorazione </li>
+								<li class="fragment fade-down" data-autoslide="500"> Prendere decisioni </li>
+								<li class="fragment fade-down"> Presentazione </li>
+							</ul>
+						</div>
+					</section>
+				</section>
+
+				<!-- Slide 3 -->
+				<section>
+					<!-- Slide 3.1 -->
+					<section> 
+						<h3> Principi di (buona) </h3>
+						<h3> Data Visualization </h3>
+
+						<ul>
+							<li> Integrità </li>
+							<li> Accessibilità </li>
+							<li> Eleganza </li>
+						</ul>
+					</section>
+
+					<!-- Slide 3.2 -->
+					<section>
+						<h3> Integrità (ed onestà) </h3>
+
+						<div>
+							<p style="font-size: 1.2rem; text-align: right; font-style: italic;"> "Show data variation, not design variation." </p>
+							<p style="font-size: 1.2rem; text-align: right;"> Edward Tufte </p>
+						</div>
+
+						<ul>
+							<li> Proporzionalità e percezione dell'aree (Lie Factor) </li> <!-- Aree e 3D -->
+							<li> Consistenza </li> <!-- Dimensioni consistenti in tutto il grafico -->
+							<li> Colore </li>
+							<li> Alterazione dei dati </li>			
+							<li> Modalità di acquisizione dati </li>
+							<li> Bias assunzioni e deduzioni </li>
+						</ul>
+					</section>
+
+					<!-- Slide 3.3 -->
+					<section>
+						<h1 class="fragment shrink" data-fragment-index="1"> Integrità </h1>
+
+						<div class="fragment step-fade-in-then-out" data-fragment-index="1">
+							<div style="display: flex; flex-direction: row; width: 100%;">
+								<img style="justify-content: flex-start; width: 40%;" data-src="image/integrita_1.jpg">
+								<img style="justify-content: center; width: 30%;" data-src="image/integrita_2.jpg">
+								<img style="justify-content: flex-end; width: 30%;" data-src="image/integrita_3.jpg">
+							</div>
+						</div>
+
+						<div class="fragment fade-in" data-fragment-index="2">
+							<div style="display: flex; flex-direction: row; width: 100%;">
+								<img style="margin-left: auto; margin-right: auto; width: 40%;" data-src="image/Wilke-assi-1a.png">
+								<img style="margin-left: auto; margin-right: auto; width: 40%;" data-src="image/Wilke-assi-2a.png">
+							</div>
+						</div>
+					</section>
+
+					<!-- Slide 3.4 -->
+					<section>
+						<h3> Accessibilità </h3>
+
+						<ul>
+							<li> Trade-off effort / reward </li>
+							<li> Labels e contesto </li>
+							<li> Adeguarsi al pubblico </li>
+							<li> Massiminizzare la data-ink ratio </li>
+							<li> Eliminare la non-data-ink <span style="font-size: 0.6em;">(entro limiti ragionevoli)</span> </li>
+							<li> Utilizzo del colore </li>
+						</ul>
+					</section>
+
+					<!-- Slide 3.5 -->
+					<section>
+						<h3> Eleganza </h3>
+
+						<div style="display: inline-flex; flex-direction: row; width: 100%; margin-top: 50px;">
+							<p class="fragment fade-left" style="width: 30%; display: flex; align-items: center; justify-content: left;"> Perché? </p>
+
+							<ul class="fragment fade-down" style="width: 70%;">
+								<li> Attrarre il pubblico </li>
+								<li> Generare interesse </li>
+							</ul>
+						</div>
+
+						<div style="display: inline-flex; flex-direction: row; width: 100%; margin-top: 50px;">
+							<p class="fragment fade-left" style="width: 30%; display: flex; align-items: center; justify-content: left;"> Come? </p>
+
+							<ul class="fragment fade-down" style="width: 70%;">
+								<li> Armonia dei colori <span style="font-size: 0.6em;">(bilanciamento, simmetria)</span> </li>
+								<li> Composizione <span style="font-size: 0.6em;">(marks, channels e Views)</span> </li>
+							</ul>
+						</div>
+
+						<p class="fragment fade-in" style="color: coral;"> Il raggiungimento dell'eleganza deve avvenire senza inficiare integrità e accessibilità. </p>
+					</section>
+				</section>
+
+				<!-- Slide 4 -->
+				<section>
+					<!-- Slide 4.1 -->
+					<section>
+						<h3 style="margin-bottom: 0px;"> Progetto sviluppato </h3>
+
+						<div style="margin-top: 0px; position: absolute; right: 200px;"> Obiettivi </div>
+
+						<div style="margin-top: 100px;">
+							<ul>
+								<li class="fragment fade-in"> Sviluppo di nuovo idiomi </li>
+								<li class="fragment fade-in"> Realizzazione Dashboard </li>
+							</ul>
+						</div>
+					</section>
+
+					<!-- Slide 4.2 -->
+					<section>
+						<h3> Dashboard </h3>
+
+						<div class="fragment fade-in-then-semi-out" data-fragment-index="2">
+							<p> Vantaggi </p>
+							<ul>
+								<li> Facilita le comparazioni </li>
+								<li> Elevata interattività </li>
+								<li> Quantità di informazione </li>
+							</ul>
+						</div>
+
+						<div class="fragment fade-in" data-fragment-index="3">
+							<p> Come? </p>
+							<ul>
+								<li> Overview, then details </li>
+								<li> Multi Views </li>
+							</ul>
+						</div>
+					</section>
+
+					<!-- Slide 4.3 -->
+					<section>
+						<h3> Tecnologie </h3>
+
+						<div style="display: inline-flex; flex-direction: row; width: 100%;">
+							<div style="width: 33%;">
+								<p> Back-end </p>
+								<img style="width: 100px; height: 100px; margin: auto;" data-src="image/java.png">
+								<p style="font-size: .6em; margin-top: 5px;"> Java </p>
+								<img style="width: 100px; height: 100px; margin: auto;" data-src="image/tomcat.png">
+								<p style="font-size: .6em;"> Tomcat </p>
+							</div>
+
+							<div style="width: 33%;">
+								<p> Front-end </p>
+								<img style="width: 100px; height: 100px; margin: auto;" data-src="image/javascript.png">
+								<p style="font-size: .6em; margin-top: 5px;"> JavaScript </p>
+								<img style="width: 100px; height: 100px; margin: auto;" data-src="image/html.png">
+								<p style="font-size: .6em; margin-top: 5px;"> HTML5 </p>
+								<img style="width: 100px; height: 100px; margin: auto;" data-src="image/css.png">
+								<p style="font-size: .6em; margin-top: 5px;"> CSS </p>
+							</div>
+
+							<div style="width: 33%;">
+								<p> Visualizzazione </p>
+								<img style="width: 100px; height: 100px; margin: auto;" data-src="image/highcharts.png">
+								<p style="font-size: .6em; margin-top: 5px;"> HighCharts </p>
+							</div>
+						</div>
+					</section>
+	
+					<!-- Slide 4.4 -->
+					<section>
+						<h3 style="margin-bottom: 0px;"> Back-end </h3>
+
+						<div style="margin-top: 0px; position: absolute; right: 200px;"> Sviluppato seguendo il pattern MVC </div>
+
+						<div style="display: inline-flex; flex-direction: row; width: 100%; margin-top: 100px">
+							<div style="width: 50%;">
+								<p> Model e Controller </p>
+								<ul>
+									<li> BEAN </li>
+									<li> DAO </li>
+									<li> BLO </li>
+									<li> ACTION </li>
+								</ul>
+							</div>
+
+							<div style="width: 50%;">
+								<p> View </p>
+								<ul>
+									<li> JSP <span style="font-size:.8em">e front-end</span> </li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<!-- Slide 4.5 -->
+					<section> 
+						<h3> Front-end </h3>
+
+						<div style="display: inline-flex; flex-direction: row; width: 100%;">
+							<div style="justify-content: flex-start; width: 33%;">
+								<p> HTML5 </p>
+								<ul>
+									<li> Canvas </li>
+									<li> SVG </li>
+								</ul>
+							</div>
+
+							<div style="justify-content: center; width: 33%;">
+								<p> CSS: Bootstrap </p>
+								<ul>
+									<li> Paginazione </li>
+									<li> Responsive </li>
+									<li> Familiarità </li>
+								</ul>
+							</div>
+
+							<div style="justify-content: flex-end; width: 33%;">
+								<p> JavaScript </p>
+								<ul>
+									<li> Modularità </li>
+									<li> Riutilizzo del codice </li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<!-- Slide 4.6 -->
+					<section>
+						<h3> HighCharts </h3>
+
+						<div class="fragmentRemove fragment fade-out" data-fragment-index="5" style="margin-top: 50px;">
+							<div>
+								<p> Vantaggi </p>
+								<ul style="display: inline-flex; flex-direction: row; width: 100%;">
+									<li class="fragment fade-in" data-fragment-index="1" style="display: inline-flex; justify-content: flex-start; width: 33%;"> Out-of-the-box </li>
+									<li class="fragment fade-in" data-fragment-index="2" style="display: inline-flex; justify-content: center; width: 33%;"> Facilità </li>
+									<li class="fragment fade-in" data-fragment-index="3" style="display: inline-flex; justify-content: flex-end; width: 33%;"> Supporto </li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="fragmentRemove fragment fade-in-then-out" data-fragment-index="4" style="margin-top: 100px;">
+							<p> Limiti? </p>
+							<ul>
+								<li style="display: inline-block;"> Flessibilità </li>
+							</ul>
+						</div>
+
+						<div class="fragment fade-in" data-fragment-index="6" style="margin-top: 100px;">
+							<p> Implementazione </p>
+							<ul>
+								<li> Modularità </li>
+								<li> Riutilizzo del codice </li>
+								<li> Configurazione & controller </li>
+							</ul>
+						</div>
+					</section>
+				</section>
+
+				<!-- Slide 5 -->
+				<section>
+					<!-- Slide 5.1 -->
+					<section>
+						<h3> Realizzazione Dashboard </h3>
+
+						<div style="display: inline-flex; flex-direction: row; width: 100%;">
+
+							<div style="width: 33%;">
+								<p> Dashboard v1 </p>
+								<img style="display: flex; justify-content: flex-start; margin-right: 10px; height: 200px; width: 100%;" data-src="image/dash_v1.png">
+								<p style="font-size: .8em;"> Tabella vs Grafico </p>
+							</div>
+		
+							<div style="width: 33%;">
+								<p> Dashboard v2 </p>
+								<img style="display: flex; justify-content: center; margin-right: 10px; height: 200px; width: 100%;" data-src="image/dash_v2.png">
+
+								<p style="font-size: .8em;"> Risultato finale </p>
+							</div>
+		
+							<div style="width: 33%;">
+								<p> Demo </p>
+								<img style="display: flex; justify-content: flex-end; margin-right: 10px; height: 200px; width: 100%;" data-src="image/demo.png">
+								<p style="font-size: .8em;"> Errori </p>
+							</div>
+						</div>
+					</section>
+
+					<!-- Slide 5.2 -->
+					<section>
+						<h3> Dashboard v1 </h3>
+
+						<p> Cards vs Streamgraph </p>
+
+						<div style="display: flex;">
+							<img style="margin-right: 10px;" data-src="image/cards.png">
+
+							<img style="margin-right: 10px;" data-src="image/streamgraph.png">
+						</div>
+					</section>
+
+					<!-- Slide 5.3 -->
+					<section>
+							<h3> Dashboard v1 </h3>
+	
+							<p> Stats vs Boxplot </p>
+
+							<div style="display: flex;">
+								<img style="margin-right: 10px;" data-src="image/stats.png">
+	
+								<img style="margin-right: 10px;" data-src="image/boxplot.png">
+							</div>
+						</section>
+
+					<!-- Slide 5.4 -->
+					<section>
+						<h3> Dashboard v2 </h3>
+
+						<p> Parte I </p>
+						<ul>
+							<li> Gauge </li>
+							<li> Column </li>
+							<li> Overlapping column </li>
+						</ul>
+					</section>
+					
+					<!-- Slide 5.5 -->
+					<section data-background="image/final_parte_1b.png">
+					</section>
+
+					<!-- Slide 5.6 -->
+					<section data-background="image/final_parte_1c.png">
+					</section>
+
+					<!-- Slide 5.7 -->
+					<section data-background="image/final_parte_1d.png">
+					</section>
+
+					<!-- Slide 5.8 -->
+					<section>
+						<h3> Dashboard v2 </h3>
+
+						<p> Parte II </p>
+						<ul>
+							<li> Spiderweb 1 </li>
+							<li> Spiderweb 2 </li>
+						</ul>
+					</section>
+
+					<!-- Slide 5.9 -->
+					<section data-background="image/final_parte_2a.png">
+					</section>
+
+					<!-- Slide 5.10 -->
+					<section data-background="image/final_parte_2b.png">
+					</section>
+
+					<!-- Slide 5.11 -->
+					<section>
+						<h3> Dashboard v2 </h3>
+
+						<p> Parte III </p>
+						<ul>
+							<li> Sunburst </li>
+							<li> Line chart </li>
+							<li> Parallel coordinates </li>
+						</ul>
+					</section>
+
+					<!-- Slide 5.12 -->
+					<section data-background="image/final_parte_3a.png">
+					</section>
+
+					<!-- Slide 5.13 -->
+					<section data-background="image/final_parte_3b.png">
+					</section>
+
+					<!-- Slide 5.14 -->
+					<section>
+						<h3> Dashboard v2 </h3>
+
+						<p> Parte IV </p>
+						<ul>
+							<li> Synchronized chart </li>
+							<li> Scatterplot </li>
+						</ul>
+					</section>
+
+					<!-- Slide 5.15 -->
+					<section data-background="image/final_parte_4a.png">
+					</section>
+
+					<!-- Slide 5.16 -->
+					<section data-background="image/final_parte_4b.png">
+					</section>
+
+					<!-- Slide 5.17 -->
+					<section>
+						<h3> Dashboard v2 </h3>
+
+						<p> Parte V </p>
+						<ul>
+							<li> Butterfly 1 </li>
+							<li> Butterfly 2 </li>
+						</ul>
+					</section>
+
+					<!-- Slide 5.18 -->
+					<section data-background="image/final_parte_5a.png">
+					</section>
+
+					<!-- Slide 5.19 -->
+					<section data-background="image/final_parte_5b.png">
+					</section>
+				</section>
+
+				<!-- Slide 6 -->
+				<section>
+
+					<!-- Slide 6.1 -->
+					<section>
+
+						<h3> Qualche statistica </h3>
+
+						<div style="display: inline-flex; width: 100%;">
+
+							<div style="width: 50%;">
+
+								<p style="font-size: 0.5em;"> Tempi di sviluppo </p>
+
+								<canvas data-chart="line">
+									<!-- 
+									{
+										"data": {
+											"labels": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+											"datasets": [
+												{
+													"data": [42, 43, 46, 42, 45, 44, 48, 42, 42, 58, 47, 34, 24, 36, 40, 45],
+													"label": "Ore", "backgroundColor": "rgba(20, 220, 220, .8)"
+												}
+											]
+										}, 
+										"options": { 
+											"responsive": "true"
+										}
+									}
+									-->
+								</canvas>
+							</div>
+
+							<div style="width: 50%;">
+
+								<p style="font-size: 0.5em;"> Righe di codice </p>
+
+								<canvas data-chart="bar">
+									<!-- 
+									{
+										"data": {
+											"labels": ["Java", "JavaScript", "JSP", "HTML", "CSS"],
+											"datasets": [
+												{
+													"data": [16358, 7378, 2042, 1012, 2506],
+													"label": "Righe"
+												}
+											]
+										}, 
+										"options": { 
+											"responsive": "true"
+										}
+									}
+									-->
+								</canvas>
+							</div>
+						</div>
+						<div style="display: inline-flex; width: 100%;">
+
+							<div style="width: 50%;">
+
+								<p style="font-size: 0.5em;"> Commits repository </p>
+
+								<canvas data-chart="line">
+									<!-- 
+									{
+										"data": {
+											"labels": ["7-14","7-15","7-16","7-17","7-18","7-19","7-20",
+														"7-21","7-22","7-23","7-24","7-25","7-26","7-27",
+														"7-28","7-29","7-30","7-31","8-1","8-2","8-3",
+														"8-4","8-5","8-6","8-7","8-8","8-9","8-10",
+														"8-11","8-12","8-13","8-14","8-15","8-16","8-17",
+														"8-18","8-19","8-20","8-21","8-22","8-23","8-24",
+														"8-25","8-26","8-27","8-28","8-29","8-30","8-31",
+														"9-1","9-2","9-3","9-4","9-5","9-6","9-7",
+														"9-8","9-9","9-10","9-11","9-12","9-13","9-14",
+														"9-15","9-16","9-17","9-18","9-19","9-20","9-21",
+														"9-22","9-23","9-24","9-25","9-26","9-27","9-28",
+														"9-29","9-30","10-1","10-2","10-3","10-4","10-5",
+														"10-6","10-7","10-8","10-9","10-10","10-11","10-12",
+														"10-13","10-14","10-15","10-16","10-17","10-18","10-19",
+														"10-20","10-21","10-22","10-23","10-24","10-25","10-26",
+														"10-27","10-28","10-29","10-30","10-31","11-1","11-2",
+														"11-3","11-4","11-5","11-6","11-7","11-8","11-9",
+														"11-10","11-11","11-12","11-13"],
+											"datasets": [
+												{
+													"data": [0, 0, 0, 0, 0, 0, 0, 
+															1, 4, 3, 2, 2, 6, 0,
+															0, 2, 2, 3, 4, 4, 0,
+															2, 3, 1, 2, 2, 3, 2,
+															3, 8, 8, 4, 1, 2, 3,
+															3, 5, 2, 2, 5, 4, 3,
+															0, 2, 2, 1, 2, 4, 8,
+															3, 1, 1, 2, 1, 0, 1,
+															1, 4, 2, 1, 3, 3, 2,
+															0, 2, 1, 2, 3, 5, 0,
+															1, 2, 2, 2, 1, 3, 4,
+															4, 1, 5, 2, 4, 2, 0,
+															0, 1, 6, 4, 2, 2, 1,
+															2, 4, 3, 2, 8, 2, 2,
+															3, 2, 0, 0, 6, 0, 0,
+															0, 0, 0, 1, 0, 0, 0,
+															1, 1, 0, 0, 1, 2, 2,
+															2, 1, 0, 1
+															],
+													"label": "Commits", "backgroundColor": "rgba(20,220,220,.8)"
+												}
+											]
+										}, 
+										"options": { 
+											"responsive": "true"
+										}
+									}
+									-->
+								</canvas>
+							</div>
+
+							<div style="width: 50%;">
+								<img style="width: auto" data-src="image/sviluppoa.png">
+							</div>
+						</div>
+					</section>
+
+					<!-- Slide 6.2 -->
+					<section>
+
+						<h3> Grazie. </h3>
+						
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				chart: {
+					defaults: { 
+						global: { 
+							title: { fontColor: "#FFF" }, 
+							legend: {
+								position: "bottom",
+								labels: { fontColor: "#FFF" },
+							},
+							tooltips: {
+								labels: { fontColor: "#FFF" },
+							},
+						}, 
+						scale: { 
+							scaleLabel: { fontColor: "#FFF" }, 
+							gridLines: { color: "#FFF", zeroLineColor: "#FFF" }, 
+							ticks: { fontColor: "#FFF" }, 
+						} 
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" ] }, 
+					bar: { backgroundColor: [ "rgba(220,120,120,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+				},
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/chart/Chart.min.js' },				
+					{ src: 'plugin/chart/csv2chart.js' },
+				]
+			});
+		</script>
+	</body>
+</html>
