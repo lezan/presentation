@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title> Presentazione </title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -549,16 +549,23 @@
 
 					<!-- Slide 5.3 -->
 					<section>
-							<h3> Dashboard v1 </h3>
-	
-							<p> Stats vs Boxplot </p>
+						<h3> Dashboard v1 </h3>
 
-							<div style="display: flex;">
-								<img style="margin-right: 10px;" data-src="image/stats.png">
-	
-								<img style="margin-right: 10px;" data-src="image/boxplot.png">
+						<p> Stats vs Boxplot </p>
+
+						<div style="display: inline-flex; width: 100%;">
+							<div style="display: flex; margin-right: 10px; width: 50%;">
+								<img style="width: 100%;" data-src="image/stats.png">
 							</div>
-						</section>
+							
+							<div style="display: flex; width: 50%;">
+
+								<img class="fragment fade-out fragmentRemove" data-fragment-index="1" style="width: 100%;" data-src="image/boxplot.png">
+								<img class="fragment step-fade-in-then-out" data-fragment-index="2" style="width: 100%;" data-src="image/boxplot_b.png">
+								
+							</div>
+						</div>
+					</section>
 
 					<!-- Slide 5.4 -->
 					<section>
